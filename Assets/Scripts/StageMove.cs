@@ -34,9 +34,11 @@ public class StageMove : MonoBehaviour
         // moveInput.ReadValue<Vector2> ->(X,Y,Z=0)
 
         Vector3 rotation;
+        float threshold = 0.2f;
+
         // moveInput.ReadValue<Vector2>.x => XŽ²
         // moveInput.ReadValue<Vector2>.y => YŽ²
-        rotation = new Vector3(moveInput.ReadValue<Vector2>().y, 0, moveInput.ReadValue<Vector2>().x);
+        rotation = new Vector3(moveInput.ReadValue<Vector2>().y*threshold, 0, moveInput.ReadValue<Vector2>().x)* threshold;
         this.transform.Rotate(rotation);
     
     }
